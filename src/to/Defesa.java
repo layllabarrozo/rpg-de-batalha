@@ -11,6 +11,6 @@ public class Defesa extends Movimento{
 		autor.defendendo = true;
 		autor.ganharEnergia(energiaGanhar);
 		
-		return "frase(?)";
+		return autor.getNome() + " se defendeu do ataque de " + alvo.getNome() + "!";
 	}
 }

@@ -12,6 +12,6 @@ public class Ataque extends Movimento{
 		alvo.receberDano(dano);
 		autor.ganharEnergia(energiaGanha);
 		
-		return "frase do historico(?)";
+		return autor.getNome() + "atacou " + alvo.getNome() + "!";
 	}
 }

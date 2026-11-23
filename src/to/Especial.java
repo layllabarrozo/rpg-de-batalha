@@ -10,13 +10,12 @@ public class Especial extends Movimento{
 	
 	public String executar(Player autor, Player alvo) throws ExcecaoEnergiaInsuficiente{
 		if(autor.getEnergia() < custoEnergia){
-			//throws new ExcecaoEnergiaInsuficiente("Energia Insuficiente!");
-			return "frase";
+			throw new ExcecaoEnergiaInsuficiente("Energia Insuficiente!");
 		}else{
 			autor.setEnergia(0);
 			alvo.receberDano(dano);
 			
-			return "frase";
+			return autor.getNome() + "usou o Especial para atacar " + alvo.getNome() + "!";
 		}
 	}
 }
