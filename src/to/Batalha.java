@@ -20,6 +20,7 @@ public class Batalha {
 
         try {
             historico.add(movimento.executar(autor, alvo));
+            
         } catch (ExcecaoEnergiaInsuficiente e) {
             historico.add(e.getMessage());
             return;
