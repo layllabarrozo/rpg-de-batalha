@@ -4,15 +4,15 @@ public class Player {
 	private String nome;
 	private int vida;
 	private int energia;
-	boolean defendendo;
+	private boolean defendendo;
 	
-	Player(String nome){
+	public Player(String nome){
 		this.nome = nome;
 		vida = 100;
 		energia = 0;
 	}
 	
-	Player(String nome, int vida){
+	public Player(String nome, int vida){
 		this.nome = nome;
 		this.vida = vida;
 		energia = 0;
@@ -27,7 +27,7 @@ public class Player {
 	}
 	
 	public void setVida(int vida){
-		if(vida > 0) {
+		if(vida >= 0) {
 			this.vida = vida;
 		}
 	}
@@ -43,23 +43,22 @@ public class Player {
 	public int getEnergia(){
 		return energia;
 	}
+
+	public void setDefendendo(boolean defendendo){
+		this.defendendo = defendendo;
+	}
 	
 	public void receberDano(int dano){
 		if(defendendo){
-			dano = dano - (dano/100)*50;
-			vida -= dano;
+			dano = dano * 50 / 100;
 			defendendo = false;
-		}else {
-			vida -= dano;
 		}
+
+		vida = Math.max(0, vida - dano);
 	}
 	
 	public void ganharEnergia(int pontos){
 		energia += pontos;
-	}
-	
-	public void zerarEnergia(){
-		energia = 0;
 	}
 	
 	public boolean estaVivo() {
