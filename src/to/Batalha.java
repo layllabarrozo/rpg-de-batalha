@@ -1,12 +1,14 @@
 package to;
 
 import java.util.ArrayList;
+import dao.Placar;
 
 public class Batalha {
 	Player player1;
 	Player player2;
 	Player jogadorDaVez;
 	ArrayList<String> historico = new ArrayList<>();
+    private Placar placar = new Placar();
 	
 	public Batalha(Player player1, Player player2){
 		this.player1 = player1;
@@ -50,10 +52,11 @@ public class Batalha {
     
     public void registrar(String frase) {
         historico.add(frase);
+        placar.registrar(frase);
     }
 
     public void registrar(Player jogador, String frase) {
-        historico.add(jogador.getNome() + ": " + frase);
+        registrar(jogador.getNome() + ": " + frase);
     }
 
     public ArrayList<String> getHistorico() {
