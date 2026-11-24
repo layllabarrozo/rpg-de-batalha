@@ -1,15 +1,16 @@
 package to;
 
 public class Defesa extends Movimento{
-	static int energiaGanhar = 15;
+	static int energiaGanha = 15;
 	
-	Defesa(){
+	public Defesa(){
 		super("Defesa");
 	}
 	
+	@Override
 	public String executar(Player autor, Player alvo){
-		autor.defendendo = true;
-		autor.ganharEnergia(energiaGanhar);
+		autor.setDefendendo(true);
+		autor.ganharEnergia(energiaGanha);
 		
 		return autor.getNome() + " se defendeu do ataque de " + alvo.getNome() + "!";
 	}
