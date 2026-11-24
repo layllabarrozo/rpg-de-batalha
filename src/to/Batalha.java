@@ -8,21 +8,24 @@ public class Batalha {
 	Player jogadorDaVez;
 	ArrayList<String> historico = new ArrayList<>();
 	
-	Batalha(Player player1, Player player2){
+	public Batalha(Player player1, Player player2){
 		this.player1 = player1;
 		this.jogadorDaVez = player1;
 		this.player2 = player2;
 	}
 	
 	public void jogar(Movimento movimento) {
+        if(getVencedor() != null){
+            return;
+        }
+
         Player autor = jogadorDaVez;
         Player alvo = (autor == player1) ? player2 : player1;
 
         try {
-            historico.add(movimento.executar(autor, alvo));
-            
-        } catch (ExcecaoEnergiaInsuficiente e) {
-            historico.add(e.getMessage());
+            registrar(movimento.executar(autor, alvo)); 
+        }catch (ExcecaoEnergiaInsuficiente e) {
+            registrar(autor, e.getMessage());
             return;
         }
 
@@ -32,9 +35,9 @@ public class Batalha {
     }
 
     public Player getVencedor(){
-        if(player1.getVida() == 0){
+        if(!player1.estaVivo()){
             return player2;
-        }else if(player2.getVida() == 0){
+        }else if(!player2.estaVivo()){
             return player1;
         }else{
             return null;
@@ -43,6 +46,14 @@ public class Batalha {
 
     public Player getJogadorDaVez(){
         return jogadorDaVez;
+    }
+    
+    public void registrar(String frase) {
+        historico.add(frase);
+    }
+
+    public void registrar(Player jogador, String frase) {
+        historico.add(jogador.getNome() + ": " + frase);
     }
 
     public ArrayList<String> getHistorico() {
