@@ -3,7 +3,7 @@ package to;
 public abstract class Movimento {
 	private String tipo;
 	
-	Movimento(String tipo){
+	public Movimento(String tipo){
 		this.tipo = tipo;
 	}
 	
