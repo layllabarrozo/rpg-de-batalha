@@ -10,7 +10,7 @@ A batalhas acontece por turnos entre dois jogadores, onde cada um inicia com 100
 
 - Ataque: causa 20 de dano no alvo e dá 25 de energia para o autor
 - Defesa: reduz 50% do próximo dano que o alvo irá receber e dá 15 de energia para o autor
-- Especial: causa 40 de dano, exigindo 100 de energia
+- Especial: causa 40 de dano, exigindo 100 de energia 
 
 &#x20; 
 
