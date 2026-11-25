@@ -1,7 +1,7 @@
 package to;
 
 public class Especial extends Movimento{
-	static int dano = 30;
+	static int dano = 40;
 	static int custoEnergia = 100;
 	
 	public Especial(){
